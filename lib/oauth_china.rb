@@ -61,10 +61,8 @@ module OauthChina
     def config
       CONFIG[self.name] ||= lambda do
         require 'yaml'
-        filename = "#{Rails.root}/config/oauth/#{self.name}.yml"
-        file     = File.open(filename)
-        yaml     = YAML.load(file)
-        return yaml[Rails.env]
+        hash = YAML.load_file("#{Rails.root}/config/oauth_china.yml")[Rails.env]
+        return hash[self.name]
       end.call
     end
 
