@@ -30,10 +30,14 @@ module OauthChina
       self.post("http://api.t.sohu.com/statuses/update.json", options)
     end
 
+    def friendships_create(id)
+      self.post("/friendships/create/#{id}.json")
+    end
+
     def upload_image(content, image_path, options = {})
       options = options.merge!(:status => content, :pic => File.open(image_path, "rb")).to_options
       upload("http://api.t.sohu.com/statuses/upload.json", options)
     end
-    
+
   end
 end

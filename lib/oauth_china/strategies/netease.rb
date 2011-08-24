@@ -31,6 +31,10 @@ module OauthChina
       self.post("http://api.t.163.com/statuses/update.json", options)
     end
 
+    def friendships_create(id)
+      self.post("/friendships/create.json?user_id=#{id}")
+    end
+
     #网易微博发送带图片的微博需要两个步骤：
     #1.利用上传图片接口上传图片，并取得返回的image url
     #2.把取来的image url放到微博的内容中，利用发微博接口发送微博。

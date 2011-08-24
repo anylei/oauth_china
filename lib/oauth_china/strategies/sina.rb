@@ -1,6 +1,6 @@
 module OauthChina
   class Sina < OauthChina::OAuth
-      
+
     def initialize(*args)
       self.consumer_options = {
         :site               => 'http://api.t.sina.com.cn',
@@ -29,13 +29,16 @@ module OauthChina
       self.post("http://api.t.sina.com.cn/statuses/update.json", options)
     end
 
+    def friendships_create(id)
+      self.post("/friendships/create/#{id}.json")
+    end
 
     def upload_image(content, image_path, options = {})
       options = options.merge!(:status => content, :pic => File.open(image_path, "rb")).to_options
       upload("http://api.t.sina.com.cn/statuses/upload.json", options)
     end
 
-    
+
 
   end
 end

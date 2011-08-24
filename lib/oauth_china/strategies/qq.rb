@@ -23,7 +23,7 @@ module OauthChina
     def nonce
       Base64.encode64(OpenSSL::Random.random_bytes(32)).gsub(/\W/, '')[0, 32]
     end
-      
+
     def authorized?
       #TODO
     end
@@ -35,6 +35,10 @@ module OauthChina
     def add_status(content, options = {})
       options.merge!(:content => content)
       self.post("http://open.t.qq.com/api/t/add", options)
+    end
+
+    def friendships_create(id)
+      self.post('/api/friends/add?format=json', {:name => id})
     end
 
     #TODO
