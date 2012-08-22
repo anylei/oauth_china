@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'oauth'
+require 'oauth2'
 require 'mime/types'
 require 'net/http'
 require 'cgi'

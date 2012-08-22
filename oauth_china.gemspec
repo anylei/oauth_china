@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.name        = "oauth_china"
   s.version     = OauthChina::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Hooopo"]
-  s.email       = ["hoooopo@gmail.com"]
+  s.authors     = ["Hooopo", "Zhengquan"]
+  s.email       = ["hoooopo@gmail.com", "yangzhengquan@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{新浪，豆瓣，腾讯等国内微薄OAuth认证}
   s.description = %q{新浪，豆瓣，腾讯等国内微薄OAuth认证}
@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-  s.add_development_dependency "active_support"
-  s.add_development_dependency "oauth"
+  s.add_development_dependency  "active_support"
+  s.add_development_dependency  "oauth"
+  s.add_development_dependency  "oauth2"
+  s.add_development_dependency  "json"
 end
