@@ -90,6 +90,42 @@ end
 
 系统时间要正确设置。否则会出现timstamps refused错误
 
+# Sina Oauth2.0
+
+Authentication
+
+```
+ client = OauthChina::Sina.new(params[:code])
+ client.authorize
+ 
+```
+Get User Info
+
+```
+ uid = client.get_uid
+ user_info = JSON.parse client.get('https://api.weibo.com/2/users/show.json',{:uid => uid}).body
+```
+Load
+
+```
+ client = OauthChina::Sina.load({access_token: data[:access_token], expires_at: data[:expires_at]})
+ client.add_status('Fuck Sina OAuth2.0')
+ client.upload_image('Uploading',img_path) #borrow from weibo_2
+```
+dump
+
+```
+client.dump
+
+{
+    :access_token => "2.006jxxxxxxxxxxxxxxxxxxx",
+      :expires_at => 1345698676
+}
+```
+
+
+
+
 #API文档
 
 * 腾讯微博API文档：http://open.t.qq.com/resource.php?i=1,1
