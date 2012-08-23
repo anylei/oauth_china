@@ -16,6 +16,7 @@ gem install oauth_china
 
 ``````
 gem 'oauth'
+gem 'oauth2'
 gem 'oauth_china'
 ``````
 
