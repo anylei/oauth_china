@@ -93,6 +93,10 @@ module OauthChina
       end
     end
 
+    def get_user_info user_url, uid
+      JSON.parse self.get(user_url,{:uid => uid}).body
+    end
+
     private
     def mime_type(file)
       case

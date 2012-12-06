@@ -88,4 +88,5 @@ module OauthChina
   autoload :Qq,             'oauth_china/strategies/qq'
   autoload :Sohu,           'oauth_china/strategies/sohu'
   autoload :Netease,        'oauth_china/strategies/netease'
+  autoload :Tencent,         'oauth_china/strategies/tencent'
 end
