@@ -91,31 +91,31 @@ end
 
 系统时间要正确设置。否则会出现timstamps refused错误
 
-# Sina Oauth2.0
+# Sina Oauth2.0 
 
 Authentication
 
-```
+```ruby
  client = OauthChina::Sina.new(params[:code])
  client.authorize
  
 ```
 Get User Info
 
-```
+```ruby
  uid = client.get_uid
  user_info = JSON.parse client.get('https://api.weibo.com/2/users/show.json',{:uid => uid}).body
 ```
 Load
 
-```
+```ruby
  client = OauthChina::Sina.load({access_token: data[:access_token], expires_at: data[:expires_at]})
  client.add_status('Fuck Sina OAuth2.0')
  client.upload_image('Uploading',img_path) #borrow from weibo_2
 ```
 dump
 
-```
+```ruby
 client.dump
 
 {
@@ -125,13 +125,35 @@ client.dump
 ```
 
 
+# Douban Oauth2.0
 
+广播：
+```ruby
+ token = {:access_token => 'xxxxx', :expires_at => 1356705563}
+ data = {
+   :text => 'Hello World!',
+   :image => 'http://developers.douban.com/pics/illustration.png'
+ }
+ client = OauthChina::Douban.load(token)
+ client.add_status data
+```
+
+推荐：
+```ruby
+data = {
+  :rec_title => 'Github',
+  :rec_url   => 'https://github.com',
+  :rec_desc  => 'Build software better, together.'
+}
+client.add_status data
+```
 
 #API文档
 
 * 腾讯微博API文档：http://open.t.qq.com/resource.php?i=1,1
 * 新浪微博API文档：http://open.t.sina.com.cn/wiki/index.php/API%E6%96%87%E6%A1%A3
 * 豆瓣微博API文档：http://www.douban.com/service/apidoc/reference/
+* 豆瓣API文档：http://developers.douban.com/wiki/?title=api_v2 
 
 #License
   This program is free softwareyou can redistribute it and /or modify
