@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'oauth'
+require 'oauth2'
 require 'mime/types'
 require 'net/http'
 require 'cgi'
@@ -85,4 +86,5 @@ module OauthChina
   autoload :Qq,             'oauth_china/strategies/qq'
   autoload :Sohu,           'oauth_china/strategies/sohu'
   autoload :Netease,        'oauth_china/strategies/netease'
+  autoload :Tencent,         'oauth_china/strategies/tencent'
 end
