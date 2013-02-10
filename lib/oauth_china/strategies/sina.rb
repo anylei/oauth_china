@@ -80,8 +80,9 @@ module OauthChina
       self.post("https://api.weibo.com/2/statuses/update.json", options)
     end
 
-    def friendships_create(id)
-      self.post("/friendships/create/#{id}.json")
+    # uid or screen_name
+    def friendships_create(options = {})
+      self.post("https://api.weibo.com/2/friendships/create.json", options)
     end
 
     def get_uid
